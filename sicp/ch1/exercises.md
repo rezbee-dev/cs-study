@@ -12,9 +12,11 @@
 (define b (+ a 1))                  ;
 (+ a b (* a b))                     ; 19
 (= a b)                             ; #f
-(if (and (> b a) (< b (* a b)))     ; 4
-b
-a)
+(if (and                            ; 4
+      (> b a) (< b (* a b))
+    )     
+      b
+      a)
 (cond ((= a 4) 6)                   ; 16
 ((= b 4) (+ 6 7 a))
 (else 25))
@@ -40,12 +42,12 @@ a)
 ```scm
 (define (sumofsquares x y z) (+
     (*
-    (cond ((> x y) (x)) (else y))
-    (cond ((> x y) (x)) (else y))
+      (cond ((> x y) (x)) (else y))
+      (cond ((> x y) (x)) (else y))
     )
     (*
-    (cond ((> y z) (y)) (else z))
-    (cond ((> y z) (y)) (else z))
+      (cond ((> y z) (y)) (else z))
+      (cond ((> y z) (y)) (else z))
     )))
 ; ex: (sumofsquares 1 2 3) = 13
 ```
