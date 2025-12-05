@@ -40,6 +40,19 @@ doc/**/*.pdf
 ```
 </details>
 
+<details><summary>What does the command "git diff" show exactly?</summary>
+
+- `git diff`
+  - compares working directory and staging area, showing changes you made but haven't staged yet
+  - "What changes have I made, but not staged?"
+- `git diff --staged`
+  - compares staging area to last commit, showing what will be included in the next commit
+  - "What changes have I staged that will be committed next?"
+- `git diff HEAD`
+  - compares working directory directly to last commit, showing all uncommitted changes regardless of staging status
+  - "What's the total difference between my working files and the last commit?"
+</details>
+
 <details><summary></summary>
 
 </details>
