@@ -1,6 +1,8 @@
 # CH1 Exercise Solutions
 
-<details><summary>Exercise 1.1.1</summary>
+## CH 1.1
+
+<details><summary>Exercise 1.1</summary>
 
 ```scm
 10                                  ; 10
@@ -30,14 +32,14 @@
 ```
 </details>
 
-<details><summary>Exercise 1.1.2</summary>
+<details><summary>Exercise 1.2</summary>
 
 ```scm
 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7))) ; -37/150
 ```
 </details>
 
-<details><summary>Exercise 1.1.3</summary>
+<details><summary>Exercise 1.3</summary>
 
 ```scm
 (define (sumofsquares x y z) (+
@@ -53,7 +55,7 @@
 ```
 </details>
 
-<details><summary>Exercise 1.1.4</summary>
+<details><summary>Exercise 1.4</summary>
 
 ```scm
 (define (a-plus-abs-b a b)   ; function evaluates to (a+b) if b is positive, and (a-b) if b is negative
@@ -61,7 +63,7 @@
 ```
 </details>
 
-<details><summary>Exercise 1.1.5</summary>
+<details><summary>Exercise 1.5</summary>
 
 ```scm
 (define (p) (p))     ; causes infinite loop
@@ -72,7 +74,7 @@
 ```
 </details>
 
-<details><summary>Exercise 1.1.6</summary>
+<details><summary>Exercise 1.6</summary>
 
 ```scm
 ; defining methods to allow exercise code snippet to work
@@ -99,13 +101,13 @@
 ```
 </details>
 
-<details><summary>Exercise 1.1.7</summary>
+<details><summary>Exercise 1.7</summary>
 
 - Skipped
 - See [sicp-solutions](https://sicp-solutions.net/post/sicp-solution-exercise-1-7/) for detailed answer
 </details>
 
-<details><summary>Exercise 1.1.8</summary>
+<details><summary>Exercise 1.8</summary>
 
 ```scm
 (define (cube x) (* x x x))
@@ -114,4 +116,27 @@
 (define (cube-iter guess x) (if (good-enough3? guess x) guess (cube-iter (improve3 guess x) x)))
 (define (cubert x) (cube-iter 1.0 x))
 ```
+</details>
+
+## CH 1.2
+
+<details><summary>Exercise 1.9</summary>
+
+- Skipped, see [solution](https://sicp-solutions.net/post/sicp-solution-exercise-1-9/)
+</details>
+
+<details><summary>Exercise 1.10</summary>
+
+- `(A 1 10)`: 1024
+- `(A 2 4)`: 65536
+- `(A 3 3)`: 65536
+- `(define (f n) (A 0 n))`: 2n
+- `(define (g n) (A 1 n))`: 2^n
+- `(define (h n) (A 2 n))`: [see solution](https://sicp-solutions.net/post/sicp-solution-exercise-1-10/)
+
+</details>
+
+<details><summary></summary>
+
+
 </details>

@@ -167,4 +167,27 @@ Lexical Scoping
 
 ## 1.2 Procedures and Processes
 
-_left off at pg 40_
+Chapter Overview
+- Examine common patterns or types of processes and their characteristics (such as time and space usage)
+
+Linear Recursive Process
+- Where the amount of information needed to keep track of operations in a function grows linearly with `n` input size
+  - operations are deferred until you reach input size `n`
+- Example:
+  
+  <img src="../media/fig1-3_linear-recursive-process.png" width="300" height="200">
+
+Linear Iterative Process
+- Memory-efficient process where only variables are updated with current values based on `n`, without growing the call stack without deferred operations
+- Example:
+
+  <img src="../media/fig1-4_linear-iterative-process.png" width="300" height="200">
+
+Tree Recursion
+- Can inefficient as time complexity is O(2^n), where `n` is input size (exponential)
+  - space complexity is linear tho
+- Example:
+
+  <img src="../media/fig1-5_tree-recursive.png" width="300" height="200">
+
+_left off on pg 53_
