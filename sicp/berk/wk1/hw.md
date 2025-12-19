@@ -97,3 +97,7 @@
 ;input: (ends-e '(please put the salami above the blue elephant))
 ;output: (please the above the blue)
 ```
+
+## Question 6
+
+skippppeeeeed!
