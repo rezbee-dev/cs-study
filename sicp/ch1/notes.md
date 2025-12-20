@@ -46,7 +46,7 @@ Substitution Model
 
 Applicative-order vs Normal-order evaluation
 - see page 20
-- appliacative-order evaluation
+- applicative-order evaluation
   - where args are evaluated first and then applied
   - is more efficient and used by Lisp
 - normal-order evaluation
@@ -191,3 +191,34 @@ Tree Recursion
   <img src="../media/fig1-5_tree-recursive.png" width="300" height="200">
 
 _left off on pg 53_
+
+## 1.3 Formulating Abstractions with Higher-Order Procedures
+
+High-Order Procedures
+- Procedures that manipulate procedures
+- Can accept and return procedures
+
+Examples of using high-order procedure
+
+```scm
+;no higher-order procedure
+(define (sum-integers a b)
+  (if (> a b) 
+      0 
+      (+ a (sum-integers (+ a 1) b))))
+;----------------------------------------
+
+;higher-order procedure
+(define (sum term a next b)
+  (if (> a b)
+      0
+      (+ (term a)
+         (sum term (next a) next b))))
+
+(define (inc n) (+ n 1))
+
+(define (identity x) x)
+
+(define (sum-integers a b)
+  (sum identity a inc b))
+```
