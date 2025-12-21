@@ -140,16 +140,30 @@
 
 <details><summary>Exercise 1.29</summary>
 
-```scm
-
-(define (simpson f a b)
-  
-)
-```
+- skipped!
 </details>
 
 
-<details><summary></summary>
+<details><summary>Exercise 1.30</summary>
 
+```scm
+; term = computes the next iterative value in the sum
+; next = computes the next iteration (up to b)
+(define (isum term a next b)
+  (define (iter a result)
+    (if (> a b)
+      result
+      (iter (next a) (+ result (term a)))
+    )
+  )
+  (iter a 0)
+)
 
+; setup
+(define (identity x) x)  ; term
+(define (inc n) (+ n 1)) ; next
+; test
+(define (isum-integers a b) (isum identity a inc b))
+(isum-integers 1 10) ; expected output: 55
+```
 </details>
