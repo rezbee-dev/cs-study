@@ -167,3 +167,53 @@
 (isum-integers 1 10) ; expected output: 55
 ```
 </details>
+
+<details><summary>Exercise 1.31</summary>
+
+```scm
+(define (identity x) x)
+(define (inc x) (+ 1 x))
+
+; product - recursive
+(define (product term a next b)
+  (if (> a b)
+      1
+      (* (term a) (product term (next a) next b))
+  )
+)
+
+; product - iterative
+(define (iproduct term a next b)
+  (define (inner a result)
+    (if (> a b)
+        result
+        (inner (next a) (* (term a) result))
+    )
+  )
+  (inner a 1)
+)
+
+; 1*2*3*4*...*n
+; test (factorial 1 5) = 120
+(define (factorial a b)
+  (iproduct identity a inc b)
+)
+
+; WALLIS FORMULA, NOT COMPLETED (INCORRECT)
+(define (square x) (* x x))
+(define (wallis-single n)
+  (/
+   (* 4 (square n))
+   (- (* 4 (square n)))
+  )
+)
+
+(define (wallis a b)
+  (product wallis-single a inc b)
+)
+```
+</details>
+
+<details><summary></summary>
+
+</details>
