@@ -147,8 +147,8 @@
 <details><summary>Exercise 1.30</summary>
 
 ```scm
-; term = computes the next iterative value in the sum
-; next = computes the next iteration (up to b)
+; term = computes the next iterative value in the sum (f(i) in summation)
+; next = computes the next iteration (up to b) (i in summation)
 (define (isum term a next b)
   (define (iter a result)
     (if (> a b)
@@ -211,6 +211,46 @@
 (define (wallis a b)
   (product wallis-single a inc b)
 )
+```
+</details>
+
+<details><summary>Exercise 1.32</summary>
+
+```scm
+; accumulation fx: (accumulate combiner null-value term a next b)
+; combiner (arg): 
+;   procedure of two args that specifies how the current term 
+;   is to be combined with accumulation of the preceding terms
+; null-value (arg): specifies what base value to use when the terms run out
+
+; accumulator: recursive
+(define (accumulate combiner null-value term a next b)
+  (if (> a b)
+      null-value
+      (combiner (term a) (accumulate combiner null-value term (next a) next b))
+  )
+)
+
+; accumulator: iterative
+(define (iaccumulate combiner null-value term a next b)
+  (define (iterate a result)
+    (if (> a b)
+        result
+        (iterate (next a) (combiner (term a) result))
+    )
+  )
+  (iterate a null-value)
+)
+
+; setup
+(define (summation current next) (+ current next))
+(define (pinotation current next) (* current next))
+(define (identity x) x)  ; term
+(define (inc n) (+ n 1)) ; next
+
+; test
+(accumulate summation 0 identity 1 inc 10) ; 55
+(accumulate pinotation 1 identity 1 inc 5) ; 120
 ```
 </details>
 
