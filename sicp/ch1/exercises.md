@@ -254,6 +254,12 @@
 ```
 </details>
 
+<details><summary>Exercise 1.33</summary>
+
+_skipped!_
+</details>
+
+
 <details><summary></summary>
 
 </details>
