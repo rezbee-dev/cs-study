@@ -194,12 +194,15 @@ _left off on pg 53_
 
 ## 1.3 Formulating Abstractions with Higher-Order Procedures
 
+### 1.3.1 Procedures as Arguments
+Misc
+- _Procedures_ = Functions
+
 High-Order Procedures
 - Procedures that manipulate procedures
 - Can accept and return procedures
 
 Examples of using high-order procedure
-
 ```scm
 ;no higher-order procedure
 (define (sum-integers a b)
@@ -221,4 +224,50 @@ Examples of using high-order procedure
 
 (define (sum-integers a b)
   (sum identity a inc b))
+```
+
+Summation as a procedure
+
+```scm
+; a = lower bound
+; b = upper bound
+; term & next = procedures
+(define (sum term a next b)
+  (if (> a b)
+    0
+    (+ (term a)
+       (sum term (next a) next b)
+    )
+  )
+)
+```
+
+Summation Example
+
+```scm
+; used as "next" in sum-integers
+(define (inc n) (+ n 1))
+
+; used as "term" in sum-integers
+(define (identity x) x)
+
+;add up numbers from a to b
+(define (sum-integers a b)
+  (sum identity a inc b))
+```
+
+### 1.3.2 Constructing Procedures Using Lambda
+
+Lambda
+- Special form that creates anonymous procedures
+  - creates procedures the same way as `define`, but no name is specified for the procedure
+- Syntax: `(lambda (⟨formal-parameters⟩) ⟨body⟩)`
+- Example
+
+```scm
+; summation from 1 to 10 (like `sum-integers`) using lambdas (and not `inc` or `identity` procedures)
+(define (sum-lambdas a b)
+  (sum (lambda (x) x) a (lambda (n) (+ n 1)) b)
+)
+; test: (sum-lamnbdas 1 10) = 55
 ```
