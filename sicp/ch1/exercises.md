@@ -259,6 +259,12 @@
 _skipped!_
 </details>
 
+<details><summary>Exercise 1.34</summary>
+
+_skipped!_
+</details>
+
+_Skipped Exercises 1.34 - 1.46_
 
 <details><summary></summary>
 

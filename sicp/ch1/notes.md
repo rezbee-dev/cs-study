@@ -261,13 +261,30 @@ Summation Example
 Lambda
 - Special form that creates anonymous procedures
   - creates procedures the same way as `define`, but no name is specified for the procedure
-- Syntax: `(lambda (⟨formal-parameters⟩) ⟨body⟩)`
+- Syntax: `(define xyz (lambda (⟨formal-parameters⟩) ⟨body⟩))`
+  - `xyz` procedure is defined by the `body` code in `lambda`
 - Example
 
 ```scm
 ; summation from 1 to 10 (like `sum-integers`) using lambdas (and not `inc` or `identity` procedures)
+;see Exercise 1.30:
+;(lambda (x) x) = identity procedure
+;(lambda (n) (+ n 1)) = increment procedure
+
 (define (sum-lambdas a b)
   (sum (lambda (x) x) a (lambda (n) (+ n 1)) b)
 )
-; test: (sum-lamnbdas 1 10) = 55
+; test: (sum-lambdas 1 10) = 55
+```
+
+Let
+- Allows creation of local variables (variable inside of function that is not function parameter)
+- Works by listing name-expression pairs, where each name is associated with value of corresponding expression when `let` is evalutated
+- Syntax:
+  - `(let ((variable) (expression)) body)`
+    - translates to, "let variable have value expression in body"
+- Ex:
+```scm
+(+ (let ()))
+
 ```
